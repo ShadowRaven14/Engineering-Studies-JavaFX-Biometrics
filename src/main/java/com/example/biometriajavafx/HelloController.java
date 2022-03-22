@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -49,9 +50,13 @@ public class HelloController
 
     @FXML protected void onNiBlackBtnClick()
     {
-        niBlackImage = AlgorytmNiBlack.binarize(originalImage, Integer.parseInt(windowTextField.getText()));
-        niBlackImageView.setImage(FileHandler.convertToFxImage(niBlackImage));
-        welcomeText.setText("NiBlack image!");
+        if( windowTextField.getText() != "")
+        {
+            int window = Integer.parseInt(windowTextField.getText());
+            niBlackImage = AlgorytmNiBlack.binarize(originalImage, window);
+            niBlackImageView.setImage(FileHandler.convertToFxImage(niBlackImage));
+            welcomeText.setText("NiBlack image!");
+        }
     }
 
     @FXML protected void onSauvolaBtnClick()

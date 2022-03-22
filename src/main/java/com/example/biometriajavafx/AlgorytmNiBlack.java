@@ -22,9 +22,6 @@ public class AlgorytmNiBlack
 
         BufferedImage img = deepCopy(imgBuff);
 
-
-        //int window = 21;
-
         //Scanning the entire image
         for (int column = 0; column < width; column++)
         {

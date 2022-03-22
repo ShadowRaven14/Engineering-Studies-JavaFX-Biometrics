@@ -88,7 +88,7 @@
                         </VBox>
                         <VBox layoutX="14.0" layoutY="483.0" prefHeight="220.0" prefWidth="141.0">
                            <children>
-                              <TextField alignment="CENTER" prefHeight="25.0" prefWidth="131.0" promptText="ex. 21" text="21">
+                              <TextField fx:id="windowTextField" alignment="CENTER" prefHeight="25.0" prefWidth="131.0" promptText="21" text="21">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
