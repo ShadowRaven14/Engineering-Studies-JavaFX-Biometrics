@@ -10,8 +10,13 @@ import java.awt.image.BufferedImage;
 
 public class HelloController {
 
+    // Image views
     @FXML
     private ImageView originalImageView;
+    private ImageView niBlackImageView;
+    private ImageView sauvolaImageView;
+    private ImageView phansalkarImageView;
+    private ImageView bernsenImageView;
 
     @FXML
     private Label welcomeText;
@@ -31,11 +36,10 @@ public class HelloController {
         BufferedImage originalImage;
         originalImage = FileHandler.LoadImage(thisStage);
 
-        //originalImageView = new ImageView();
         originalImageView.setImage(FileHandler.convertToFxImage(originalImage));
 
-
-
         welcomeText.setText("Load image!");
+
+
     }
 }
