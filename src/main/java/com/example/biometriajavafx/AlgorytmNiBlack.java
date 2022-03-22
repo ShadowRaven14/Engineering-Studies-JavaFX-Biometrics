@@ -13,16 +13,17 @@ public class AlgorytmNiBlack
     public final int pixel_bg = 0xff000000; //background pixel
 
     //Binarization by NiBlack
-    public static BufferedImage binarize(BufferedImage imgBuff)
+    public static BufferedImage binarize(BufferedImage imgBuff, int window)
     {
+        //Window size (for each side)
 
         width = imgBuff.getWidth();
         height = imgBuff.getHeight();
 
         BufferedImage img = deepCopy(imgBuff);
 
-        //Window size (for each side)
-        int window = 21;
+
+        //int window = 21;
 
         //Scanning the entire image
         for (int column = 0; column < width; column++)

@@ -21,7 +21,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="414.0">
                      <children>
-                        <Label fx:id="welcomeText" layoutX="14.0" layoutY="321.0" prefHeight="27.0" prefWidth="171.0" text="Label" />
+                        <Label fx:id="welcomeText" layoutX="14.0" layoutY="321.0" prefHeight="27.0" prefWidth="211.0" text="Label" />
                         <ImageView fx:id="originalImageView" fitHeight="226.0" fitWidth="279.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
                         <Text layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original Image " wrappingWidth="114.0" />
                         <VBox layoutX="342.0" layoutY="56.0" prefHeight="606.0" prefWidth="629.0">
@@ -86,7 +86,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox layoutX="27.0" layoutY="477.0" prefHeight="220.0" prefWidth="141.0">
+                        <VBox layoutX="14.0" layoutY="483.0" prefHeight="220.0" prefWidth="141.0">
                            <children>
                               <TextField alignment="CENTER" prefHeight="25.0" prefWidth="131.0" promptText="ex. 21" text="21">
                                  <font>
@@ -96,7 +96,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <Button fx:id="niBlackBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="NiBlack">
+                              <Button fx:id="niBlackBtn" mnemonicParsing="false" onAction="#onNiBlackBtnClick" prefHeight="25.0" prefWidth="141.0" text="NiBlack">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -104,7 +104,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="sauvolaBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Sauvola">
+                              <Button fx:id="sauvolaBtn" mnemonicParsing="false" onAction="#onSauvolaBtnClick" prefHeight="25.0" prefWidth="141.0" text="Sauvola">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -112,7 +112,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="phansalkarBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Phansalkar">
+                              <Button fx:id="phansalkarBtn" mnemonicParsing="false" onAction="#onPhansalkarClick" prefHeight="25.0" prefWidth="141.0" text="Phansalkar">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -120,7 +120,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="bernsenBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Bernsen">
+                              <Button fx:id="bernsenBtn" mnemonicParsing="false" onAction="#onBernsenBtnClick" prefHeight="25.0" prefWidth="141.0" text="Bernsen">
                                  <font>
                                     <Font size="15.0" />
                                  </font>

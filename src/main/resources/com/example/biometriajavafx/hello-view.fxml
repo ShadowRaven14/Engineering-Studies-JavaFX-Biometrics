@@ -5,10 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biometriajavafx.HelloController">
@@ -19,7 +21,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="414.0">
                      <children>
-                        <Label fx:id="welcomeText" layoutX="14.0" layoutY="321.0" prefHeight="17.0" prefWidth="70.0" text="Label" />
+                        <Label fx:id="welcomeText" layoutX="14.0" layoutY="321.0" prefHeight="27.0" prefWidth="211.0" text="Label" />
                         <ImageView fx:id="originalImageView" fitHeight="226.0" fitWidth="279.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
                         <Text layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original Image " wrappingWidth="114.0" />
                         <VBox layoutX="342.0" layoutY="56.0" prefHeight="606.0" prefWidth="629.0">
@@ -84,6 +86,50 @@
                               </HBox>
                            </children>
                         </VBox>
+                        <VBox layoutX="14.0" layoutY="483.0" prefHeight="220.0" prefWidth="141.0">
+                           <children>
+                              <TextField alignment="CENTER" prefHeight="25.0" prefWidth="131.0" promptText="ex. 21" text="21">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button fx:id="niBlackBtn" mnemonicParsing="false" onAction="#onNiBlackBtnClick" prefHeight="25.0" prefWidth="141.0" text="NiBlack">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="sauvolaBtn" mnemonicParsing="false" onAction="#onSauvolaBtnClick" prefHeight="25.0" prefWidth="141.0" text="Sauvola">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="phansalkarBtn" mnemonicParsing="false" onAction="#onPhansalkarClick" prefHeight="25.0" prefWidth="141.0" text="Phansalkar">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="bernsenBtn" mnemonicParsing="false" onAction="#onBernsenBtnClick" prefHeight="25.0" prefWidth="141.0" text="Bernsen">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
             </content>
@@ -97,8 +143,14 @@
       </TabPane>
       <HBox layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="271.0">
          <children>
-            <Button fx:id="loadImageBtn" mnemonicParsing="false" onAction="#onLoadImageBtnClick" prefHeight="31.0" prefWidth="114.0" text="Load Image" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" />
+            <Button fx:id="loadImageBtn" mnemonicParsing="false" onAction="#onLoadImageBtnClick" prefHeight="31.0" prefWidth="114.0" text="Load Image">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" text="Save Image">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </children>
