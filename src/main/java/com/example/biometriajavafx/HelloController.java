@@ -8,21 +8,31 @@ import javafx.stage.Stage;
 
 import java.awt.image.BufferedImage;
 
-public class HelloController {
+public class HelloController
+{
+
+    private BufferedImage originalImage;
+    private BufferedImage niBlackImage;
 
     // Image views
-    @FXML
-    private ImageView originalImageView;
-    private ImageView niBlackImageView;
-    private ImageView sauvolaImageView;
-    private ImageView phansalkarImageView;
-    private ImageView bernsenImageView;
+    @FXML private ImageView originalImageView;
+    @FXML private ImageView niBlackImageView;
+    @FXML private ImageView sauvolaImageView;
+    @FXML private ImageView phansalkarImageView;
+    @FXML private ImageView bernsenImageView;
 
     @FXML
     private Label welcomeText;
 
-    @FXML
-    private Button loadImageBtn;
+    @FXML private Button loadImageBtn;
+    @FXML private Button niBlackBtn;
+    @FXML private Button sauvolaBtn;
+    @FXML private Button phansalkarBtn;
+    @FXML private Button bernsenBtn;
+    //@FXML private Button NiBlackButtonID;
+    //@FXML private Button SavoulaButtonID;
+    //@FXML private Button PhansalkarButtonID;
+    //@FXML private Button BernsenButtonID;
 
     @FXML
     protected void onHelloButtonClick() {
@@ -30,16 +40,21 @@ public class HelloController {
     }
 
     @FXML
-    protected void onLoadImageBtnClick() {
+    protected void onLoadImageBtnClick()
+    {
         Stage thisStage = (Stage) loadImageBtn.getScene().getWindow();
-
-        BufferedImage originalImage;
         originalImage = FileHandler.LoadImage(thisStage);
-
         originalImageView.setImage(FileHandler.convertToFxImage(originalImage));
-
         welcomeText.setText("Load image!");
 
+        niBlackImage = AlgorytmNiBlack.binarize(originalImage);
+        niBlackImageView.setImage(FileHandler.convertToFxImage(niBlackImage));
+        welcomeText.setText("NiBlack image!");
+    }
+
+    @FXML
+    protected void NiBlackBtnClick()
+    {
 
     }
 }

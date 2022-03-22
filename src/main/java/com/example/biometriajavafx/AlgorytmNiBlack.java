@@ -22,14 +22,15 @@ public class AlgorytmNiBlack
         BufferedImage img = deepCopy(imgBuff);
 
         //Window size (for each side)
-        int window = 3;
+        int window = 21;
 
         //Scanning the entire image
-        for (int c = 0; c < width; c++)
+        for (int column = 0; column < width; column++)
         {
-            for (int r = 0; r < height; r++)
+            for (int row = 0; row < height; row++)
             {
-                int acc = 0;
+                int iAverage = 0;
+                int iRed=0, iGreen=0, iBlue=0;
 
                 //Sweeping the window to get the average
                 for(int ji = -window ; ji < window ; ji++)
@@ -37,16 +38,30 @@ public class AlgorytmNiBlack
                     for(int jj = -window ; jj < window ; jj++)
                     {
                         //Accumulating the values and then taking the average - do if serves to protect the window from not walking out of the image
-                        if(c+ji >= 0 && c+ji < width)
-                            if(r+jj >= 0 && r+jj < height)
-                                acc += imgBuff.getRGB(c+ji, r+jj) & 0x00ff0000 >> 16;
+                        if(column+ji >= 0 && column+ji < width)
+                            if(row+jj >= 0 && row+jj < height)
+                            {
+                                iRed += imgBuff.getRGB(column+ji, row+jj) & 0xff0000 >> 16;
+                                iGreen += imgBuff.getRGB(column+ji, row+jj) & 0x00ff00 >> 8;
+                                iBlue += imgBuff.getRGB(column+ji, row+jj) & 0xff;
+                                //iAverage += imgBuff.getRGB(column+ji, row+jj) & 0x00ff0000 >> 16;
+                            }
                     }
                 }
+                iAverage = (iRed + iGreen + iBlue ) / 3;
+
+
+                int pixelRed = img.getRGB(column, row) & 0xff0000 >> 16;
+                int pixelGreen = img.getRGB(column, row) & 0x00ff00 >> 8;
+                int pixelBlue = img.getRGB(column, row) & 0xff;
+                int pixelAverage = (pixelRed + pixelGreen + pixelBlue) /3;
 
                 //is higher than average
-                int pixel = img.getRGB(c, r) & 0x00ff0000 >> 16;
-                if (pixel > acc / ((window*2) * (window*2)) ) img.setRGB(c, r, 0x00FFFFFF );
-                else img.setRGB(c, r, 0x00000000 );
+                //int pixel = img.getRGB(column, row) & 0x00ff0000 >> 16;
+                if (pixelAverage > iAverage / ((window*2) * (window*2)))
+                    img.setRGB(column, row, 0x00FFFFFF );
+                else
+                    img.setRGB(column, row, 0x00000000 );
             }
         }
 
@@ -58,6 +73,7 @@ public class AlgorytmNiBlack
         ColorModel cm = bi.getColorModel();
         boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
         WritableRaster raster = bi.copyData(null);
+
         return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
 

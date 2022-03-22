@@ -5,13 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biometriajavafx.HelloController">
    <children>
@@ -22,11 +20,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="414.0">
                      <children>
                         <Label fx:id="welcomeText" layoutX="14.0" layoutY="321.0" prefHeight="17.0" prefWidth="70.0" text="Label" />
-                        <ImageView fx:id="originalImageView" fitHeight="226.0" fitWidth="279.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../img/pobrane.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="originalImageView" fitHeight="226.0" fitWidth="279.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
                         <Text layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original Image " wrappingWidth="114.0" />
                         <VBox layoutX="342.0" layoutY="56.0" prefHeight="606.0" prefWidth="629.0">
                            <children>
@@ -35,13 +29,13 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Niblack" wrappingWidth="80.13671875" />
-                                          <ImageView fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="niBlackImageView" fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Savuloa" wrappingWidth="80.13671875" />
-                                          <ImageView fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sauvola" wrappingWidth="80.13671875" />
+                                          <ImageView fx:id="sauvolaImageView" fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -64,7 +58,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phansalkar" wrappingWidth="80.13671875" />
-                                          <ImageView fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="phansalkarImageView" fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                        <opaqueInsets>
                                           <Insets />
@@ -73,7 +67,7 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bernsen" wrappingWidth="80.13671875" />
-                                          <ImageView fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="bersenImageView" fitHeight="233.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
