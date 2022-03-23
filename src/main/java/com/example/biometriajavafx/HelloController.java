@@ -19,6 +19,7 @@ public class HelloController
     private BufferedImage niBlackImage;
     private BufferedImage sauvolaImage;
     private BufferedImage phansalkarImage;
+    private BufferedImage bernsenImage;
 
     //Image views
     @FXML private ImageView originalImageView;
@@ -103,6 +104,19 @@ public class HelloController
 
     @FXML protected void onBernsenBtnClick()
     {
+        if( windowParameterTextField.getText() != "" && thresholdParameterTextField.getText() != "")
+        {
+            welcomeText.setText("Bernsen Loading...");
+
+            int window = Integer.parseInt(windowParameterTextField.getText());
+            double k = Double.parseDouble(thresholdParameterTextField.getText());
+            //if(k > 0) k *= -1;
+
+            bernsenImage = AlgorithmBernsen.binarize(originalImage, window, k);
+            bernsenImageView.setImage(FileHandler.convertToFxImage(bernsenImage));
+
+            welcomeText.setText("Bernsen Image Loaded!");
+        }
 
     }
 
