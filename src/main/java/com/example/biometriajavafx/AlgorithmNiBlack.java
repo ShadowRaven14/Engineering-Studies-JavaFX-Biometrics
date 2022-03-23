@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
 
-public class AlgorytmNiBlack
+public class AlgorithmNiBlack
 {
 
     //Declarative variables

@@ -122,14 +122,17 @@
                               </Button>
                            </children>
                         </VBox>
-                        <TextField fx:id="windowParameterTextField" alignment="CENTER" layoutX="134.0" layoutY="359.0" prefHeight="27.0" prefWidth="131.0" promptText="ex. 21" text="21">
+                        <TextField fx:id="windowParameterTextField" alignment="CENTER" layoutX="134.0" layoutY="359.0" prefHeight="27.0" prefWidth="131.0" promptText="ex. 21">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
                         <Label layoutX="14.0" layoutY="365.0" prefHeight="27.0" prefWidth="84.0" text="Window Size" />
                         <Label layoutX="14.0" layoutY="423.0" prefHeight="17.0" prefWidth="114.0" text="Threshold Parameter" />
-                        <TextField fx:id="thresholdParameterTextField" layoutX="134.0" layoutY="413.0" prefHeight="37.0" prefWidth="132.0" />
+                        <TextField fx:id="thresholdParameterTextField" alignment="CENTER" layoutX="134.0" layoutY="413.0" prefHeight="37.0" prefWidth="132.0" promptText="ex. -.0.5">
+                           <font>
+                              <Font size="18.0" />
+                           </font></TextField>
                      </children>
                   </AnchorPane>
             </content>

@@ -17,6 +17,7 @@ public class HelloController
     //Buffered images
     private BufferedImage originalImage;
     private BufferedImage niBlackImage;
+    private BufferedImage sauvolaImage;
 
     //Image views
     @FXML private ImageView originalImageView;
@@ -58,7 +59,7 @@ public class HelloController
             double k = Double.parseDouble(thresholdParameterTextField.getText());
             if(k > 0) k *= -1;
 
-            niBlackImage = AlgorytmNiBlack.binarize(originalImage, window, k);
+            niBlackImage = AlgorithmNiBlack.binarize(originalImage, window, k);
             niBlackImageView.setImage(FileHandler.convertToFxImage(niBlackImage));
 
             welcomeText.setText("NiBlack Image Loaded!");
@@ -67,7 +68,19 @@ public class HelloController
 
     @FXML protected void onSauvolaBtnClick()
     {
+        if( windowParameterTextField.getText() != "" && thresholdParameterTextField.getText() != "")
+        {
+            welcomeText.setText("Sauvola Loading...");
 
+            int window = Integer.parseInt(windowParameterTextField.getText());
+            double k = Double.parseDouble(thresholdParameterTextField.getText());
+            if(k > 0) k *= -1;
+
+            sauvolaImage = AlgotithmSauvola.binarize(originalImage, window, k);
+            sauvolaImageView.setImage(FileHandler.convertToFxImage(sauvolaImage));
+
+            welcomeText.setText("Sauvola Image Loaded!");
+        }
     }
 
     @FXML protected void onPhansalkarClick()
