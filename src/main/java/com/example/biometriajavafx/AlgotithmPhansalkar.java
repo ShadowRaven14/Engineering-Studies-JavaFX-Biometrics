@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
 
-public class AlgotithmSauvola {
+public class AlgotithmPhansalkar {
 
     //Declarative variables
     private static int width;
@@ -86,13 +86,18 @@ public class AlgotithmSauvola {
                 R = Math.max(R, standardDeviation);
                 //***********************************//
 
-                //Sauvola Pattern
-                double Sauvola = average * (1 + k*(SD / R - 1));
+                //* constanst to implements fielsds *//
+                double p = 3;
+                double q = 10;
+
+                //Phansalkar Pattern
+                //double Phansalkar = average * (1 + k*(SD / R - 1));
+                double Phansalkar = average *  (1 + p * Math.exp(-q * average) + (k * (SD / R - 1) ));
 
 
                 //is higher than average
                 //int pixel = img.getRGB(column, row) & 0x00ff0000 >> 16;
-                if (pixelAverage > Sauvola)
+                if (pixelAverage > Phansalkar)
                     img.setRGB(column, row, 0x00FFFFFF );
                 else
                     img.setRGB(column, row, 0x00000000 );
@@ -110,5 +115,6 @@ public class AlgotithmSauvola {
 
         return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
+
 
 }
