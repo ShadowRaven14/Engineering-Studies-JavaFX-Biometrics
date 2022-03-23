@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import static java.lang.Integer.parseInt;
@@ -27,7 +26,8 @@ public class HelloController
     @FXML private ImageView bernsenImageView;
 
     @FXML private Label welcomeText;
-    @FXML private TextField windowTextField;
+    @FXML private TextField windowParameterTextField;
+    @FXML private TextField thresholdParameterTextField;
 
     @FXML private Button loadImageBtn;
     @FXML private Button niBlackBtn;
@@ -50,12 +50,18 @@ public class HelloController
 
     @FXML protected void onNiBlackBtnClick()
     {
-        if( windowTextField.getText() != "")
+        if( windowParameterTextField.getText() != "" && thresholdParameterTextField.getText() != "")
         {
-            int window = Integer.parseInt(windowTextField.getText());
-            niBlackImage = AlgorytmNiBlack.binarize(originalImage, window);
+            welcomeText.setText("NiBlack Loading...");
+
+            int window = Integer.parseInt(windowParameterTextField.getText());
+            double k = Double.parseDouble(thresholdParameterTextField.getText());
+            if(k > 0) k *= -1;
+
+            niBlackImage = AlgorytmNiBlack.binarize(originalImage, window, k);
             niBlackImageView.setImage(FileHandler.convertToFxImage(niBlackImage));
-            welcomeText.setText("NiBlack image!");
+
+            welcomeText.setText("NiBlack Image Loaded!");
         }
     }
 
