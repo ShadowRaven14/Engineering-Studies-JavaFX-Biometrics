@@ -17,35 +17,44 @@ public class AlgorithmMedian {
         int width = medianImage.getWidth();
         int height = medianImage.getHeight();
 
-        window = 3;
-        Color[] pixel = new Color[window * window];
-        int[] R= new int[window * window];
-        int[] G= new int[window * window];
-        int[] B= new int[window * window];
+        int rgb;
+        List<Color> pixels = new ArrayList<>();
+        int[] R;
+        int[] G;
+        int[] B;
 
 
-        for(int i=1;i<img.getWidth()-1;i++)
-            for(int j=1;j<img.getHeight()-1;j++)
+        for(int column=1; column < width-1; column++)
+            for(int row=1; row<height-1; row++)
             {
-                pixel[0]=new Color(img.getRGB(i-1,j-1));
-                pixel[1]=new Color(img.getRGB(i-1,j));
-                pixel[2]=new Color(img.getRGB(i-1,j+1));
-                pixel[3]=new Color(img.getRGB(i,j+1));
-                pixel[4]=new Color(img.getRGB(i+1,j+1));
-                pixel[5]=new Color(img.getRGB(i+1,j));
-                pixel[6]=new Color(img.getRGB(i+1,j-1));
-                pixel[7]=new Color(img.getRGB(i,j-1));
-                pixel[8]=new Color(img.getRGB(i,j));
-                for(int k=0;k<9;k++){
-                    R[k]=pixel[k].getRed();
-                    G[k]=pixel[k].getGreen();
-                    B[k]=pixel[k].getBlue();
+                for (int ji = -window; ji < window; ji++) {
+                    for (int jj = -window; jj < window; jj++) {
+                        if (column + ji >= 0 && column + ji < width) {
+                            if (row + jj >= 0 && row + jj < height) {
+                                rgb = img.getRGB(column + ji, row + jj);
+                                pixels.add(new Color(rgb));
+                            }
+                        }
+                    }
+                }
 
+
+                R = new int[pixels.size()];
+                B = new int[pixels.size()];
+                G = new int[pixels.size()];
+
+                for(int k = 0;k<pixels.size();k++){
+                    R[k] = pixels.get(k).getRed();
+                    B[k] = pixels.get(k).getBlue();
+                    G[k] = pixels.get(k).getGreen();
                 }
                 Arrays.sort(R);
                 Arrays.sort(G);
                 Arrays.sort(B);
-                medianImage.setRGB(i,j,new Color(R[4],G[4],B[4]).getRGB());
+                int median = pixels.size()/2;
+                medianImage.setRGB(column,row,new Color(R[median],G[median],B[median]).getRGB());
+                pixels.clear();
+
             }
 
 
