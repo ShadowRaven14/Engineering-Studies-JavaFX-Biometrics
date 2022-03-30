@@ -22,21 +22,36 @@ public class HelloController
     private BufferedImage bernsenImage;
 
     //Image views
+
+
+
+    // PS3
     @FXML private ImageView originalImageView;
     @FXML private ImageView niBlackImageView;
     @FXML private ImageView sauvolaImageView;
     @FXML private ImageView phansalkarImageView;
     @FXML private ImageView bernsenImageView;
 
+    //PS4
+    @FXML private ImageView originalImageViewPS4;
+    @FXML private ImageView pixelationImageView;
+
     @FXML private Label welcomeText;
     @FXML private TextField windowParameterTextField;
     @FXML private TextField thresholdParameterTextField;
+    @FXML private TextField pixelSizeParameterTextField;
 
     @FXML private Button loadImageBtn;
+
+    // PS3
     @FXML private Button niBlackBtn;
     @FXML private Button sauvolaBtn;
     @FXML private Button phansalkarBtn;
     @FXML private Button bernsenBtn;
+
+    // PS4
+    @FXML private Button pixelationBtn;
+
 
     @FXML protected void onHelloButtonClick()
     {
@@ -48,6 +63,7 @@ public class HelloController
         Stage thisStage = (Stage) loadImageBtn.getScene().getWindow();
         originalImage = FileHandler.LoadImage(thisStage);
         originalImageView.setImage(FileHandler.convertToFxImage(originalImage));
+        originalImageViewPS4.setImage(FileHandler.convertToFxImage(originalImage));
         welcomeText.setText("Load image!");
     }
 
@@ -116,6 +132,18 @@ public class HelloController
             bernsenImageView.setImage(FileHandler.convertToFxImage(bernsenImage));
 
             welcomeText.setText("Bernsen Image Loaded!");
+        }
+
+    }
+
+    @FXML protected void onPixelationBtnClick() {
+
+        if(pixelSizeParameterTextField.getText() != "") {
+
+            int PIX_SIZE = Integer.parseInt(pixelSizeParameterTextField.getText());
+            BufferedImage pixelatedImage = AlgorithmPixelation.pixelate(originalImage, PIX_SIZE);
+            pixelationImageView.setImage(FileHandler.convertToFxImage(pixelatedImage));
+
         }
 
     }
