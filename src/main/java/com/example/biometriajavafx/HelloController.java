@@ -35,6 +35,7 @@ public class HelloController
     //PS4
     @FXML private ImageView originalImageViewPS4;
     @FXML private ImageView pixelationImageView;
+    @FXML private ImageView medianImageView;
 
     @FXML private Label welcomeText;
     @FXML private TextField windowParameterTextField;
@@ -51,7 +52,7 @@ public class HelloController
 
     // PS4
     @FXML private Button pixelationBtn;
-
+    @FXML private Button medianBtn;
 
     @FXML protected void onHelloButtonClick()
     {
@@ -147,5 +148,19 @@ public class HelloController
         }
 
     }
+
+    @FXML protected void onMedianBtnClick() {
+
+        if(pixelSizeParameterTextField.getText() != "") {
+
+            int PIX_SIZE = Integer.parseInt(pixelSizeParameterTextField.getText());
+            BufferedImage medianedImage = AlgorithmMedian.median(originalImage, PIX_SIZE);
+            medianImageView.setImage(FileHandler.convertToFxImage(medianedImage));
+
+        }
+
+    }
+
+
 
 }

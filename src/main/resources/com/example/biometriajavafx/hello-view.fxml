@@ -152,6 +152,9 @@
                            </font>
                         </TextField>
                         <Label layoutX="29.0" layoutY="420.0" prefHeight="27.0" prefWidth="84.0" text="Pixel size:" />
+                        <ImageView fx:id="medianImageView" fitHeight="226.0" fitWidth="279.0" layoutX="678.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text layoutX="672.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Median" wrappingWidth="114.0" />
+                        <Button fx:id="medianBtn" layoutX="28.0" layoutY="566.0" mnemonicParsing="false" onAction="#onMedianBtnClick" prefHeight="37.0" prefWidth="142.0" text="Median" />
                      </children></AnchorPane>
             </content>
           </Tab>
