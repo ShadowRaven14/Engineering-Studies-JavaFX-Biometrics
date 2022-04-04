@@ -7,7 +7,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import javafx.event.ActionEvent;
 
 import static java.lang.Integer.parseInt;
 
@@ -37,6 +40,9 @@ public class HelloController
     @FXML private ImageView pixelationImageView;
     @FXML private ImageView medianImageView;
 
+    //PS5
+    @FXML private ImageView originalImageViewPS5;
+
     @FXML private Label welcomeText;
     @FXML private TextField windowParameterTextField;
     @FXML private TextField thresholdParameterTextField;
@@ -65,6 +71,7 @@ public class HelloController
         originalImage = FileHandler.LoadImage(thisStage);
         originalImageView.setImage(FileHandler.convertToFxImage(originalImage));
         originalImageViewPS4.setImage(FileHandler.convertToFxImage(originalImage));
+        originalImageViewPS5.setImage(FileHandler.convertToFxImage(originalImage));
         welcomeText.setText("Load image!");
     }
 
@@ -158,6 +165,26 @@ public class HelloController
             medianImageView.setImage(FileHandler.convertToFxImage(medianedImage));
 
         }
+
+    }
+
+    @FXML protected void onImageToSegmentClick() {
+
+        int tolerance = 60;
+        Color color = Color.black ;
+
+        originalImageViewPS5.setOnMouseClicked(e -> {
+            int  x0 = (int) e.getX();
+            int  y0 = (int) e.getY();
+
+            System.out.printf("X: %f Y: %f",x0, y0);
+
+            BufferedImage segmentedImage = AlgorithmSegmentation.segment(originalImage, x0, y0, tolerance, color);
+
+
+
+            originalImageViewPS5.setImage(FileHandler.convertToFxImage(segmentedImage));
+        } );
 
     }
 

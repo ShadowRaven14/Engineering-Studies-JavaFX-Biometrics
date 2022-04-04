@@ -158,6 +158,15 @@
                      </children></AnchorPane>
             </content>
           </Tab>
+            <Tab text="PS5 - Segmentation">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="originalImageViewPS5" fitHeight="508.0" fitWidth="676.0" layoutX="159.0" layoutY="140.0" onMouseClicked="#onImageToSegmentClick" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
       <HBox layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="271.0">
